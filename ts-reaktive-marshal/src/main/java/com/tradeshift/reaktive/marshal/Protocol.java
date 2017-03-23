@@ -152,7 +152,7 @@ public interface Protocol<E,T> extends ReadProtocol<E,T>, WriteProtocol<E,T> {
     /**
      * Writes a map using an inner protocol, by turning it into writing multiple tuples.
      */
-    public static <E,K,V> WriteProtocol<E,Map<K,V>> map(Protocol<E,Tuple2<K,V>> inner) {
+    public static <E,K,V> WriteProtocol<E,Map<K,V>> map(WriteProtocol<E,Tuple2<K,V>> inner) {
         return MapProtocol.write(inner);
     }
     
